@@ -11,10 +11,17 @@ class TaskTest {
     public void testTaskMatch() {
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
-boolean actual = simpleTask.matches("Позвонить");
-boolean expected = true;
+        boolean actual = simpleTask.matches("Позвонить");
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
+    @Test
+    public void testTaskNoMatch() {
+        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+
+        boolean actual = simpleTask.matches("Написать");
+
+        Assertions.assertFalse(actual);
+    }
 }
